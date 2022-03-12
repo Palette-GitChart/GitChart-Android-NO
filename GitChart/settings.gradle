@@ -7,4 +7,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "GitChart"
-include ':app'
+include ':presentation'
+include ':domain'
+include ':data'
