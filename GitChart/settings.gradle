@@ -1,2 +1,0 @@
-rootProject.name = "GitChart"
-include(":presentation", ":domain", ":data")
