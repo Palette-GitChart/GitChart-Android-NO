@@ -1,70 +1,124 @@
-import Versions.NAV_VERSION
+object Dependency {
 
-object Versions {
-    const val NAV_VERSION = "2.4.0-alpha10"
+    const val appcompat = "androidx.appcompat:appcompat:${Version.appcompat}"
+    const val coreKtx = "androidx.core:core-ktx:${Version.coreKtx}"
+    const val androidKtx = "androidx.activity:activity-ktx:${Version.androidKtx}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Version.fragmentKtx}"
 
-}
+    object UI {
+        const val material = "com.google.android.material:material:${Version.material}"
+        const val constraintLayout =
+            "androidx.constraintlayout:constraintlayout:${Version.constraintLayout}"
+        const val compose = "androidx.compose.ui:ui:${Version.jetpackCompose}"
+        const val composeTooling = "androidx.compose.ui:ui-tooling:${Version.jetpackCompose}"
+        const val composePreview =
+            "androidx.compose.ui:ui-tooling-preview:${Version.jetpackCompose}"
+        const val composeMaterial =
+            "androidx.compose.material:material:${Version.jetpackCompose}"
+        const val composeCompiler =
+            "androidx.compose.compiler:compiler:${Version.jetpackCompose}"
+        const val activityCompose =
+            "androidx.activity:activity-compose:${Version.activityCompose}"
+        const val coilCompose =
+            "io.coil-kt:coil-compose:${Version.coilCompose}"
+    }
 
-object Kotlin {
-    const val SDK = "org.jetbrains.java:java-stdlib-jdk8:1.5.21"
-}
+    object GradlePlugin {
+        const val android = "com.android.tools.build:gradle:${Version.gradle}"
+        const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Version.kotlin}"
+        const val hilt = "com.google.dagger:hilt-android-gradle-plugin:${Version.hilt}"
+        const val service = "com.google.gms:google-services:${Version.service}"
+    }
 
-object AndroidX {
-    const val MATERIAL = "androidx.compose.material:material:1.0.0-rc02"
-    const val CONSTRAINT_LAYOUT = "androidx.constraintlayout:constraintlayout:2.1.0"
-    const val APP_COMPAT = "androidx.appcompat:appcompat:1.3.1"
-    const val LEGACY = "androidx.legacy:legacy-support-v4:1.0.0"
-    const val LIFECYCLE_VIEW_MODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
-    const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.3.1"
-    const val ACTIVITY = "androidx.activity:activity-ktx:1.3.1"
-    const val FRAGMENT = "androidx.fragment:fragment-ktx:1.3.6"
-    const val DATASTORE = "androidx.datastore:datastore-preferences:1.0.0"
-}
+    object Test {
+        const val junit = "junit:junit:${Version.junit}"
+        const val mockito = "org.mockito:mockito-core:${Version.mockito}"
+        const val androidJunit = "androidx.test.ext:junit:${Version.androidJunit}"
+        const val espresso = "androidx.test.espresso:espresso-core:${Version.espresso}"
+        const val mockitoKotlin =
+            "com.nhaarman.mockitokotlin2:mockito-kotlin:${Version.mockitoKotlin}"
+        const val mockitoInline = "org.mockito:mockito-inline:${Version.mockitoInline}"
+        const val threeTenAbp = "org.threeten:threetenbp:${Version.threeTenAbp}"
+    }
 
-object KTX {
-    const val CORE = "androidx.core:core-ktx:1.6.0"
-}
+    object Coroutine {
+        const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Version.coroutine}"
+        const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Version.coroutine}"
+    }
 
-object Google {
-    const val MATERIAL = "com.google.android.material:material:1.4.0"
-}
+    object DI {
+        const val hiltAndroid = "com.google.dagger:hilt-android:${Version.hilt}"
+        const val hiltCompiler = "com.google.dagger:hilt-android-compiler:${Version.hilt}"
+        const val inject = "javax.inject:javax.inject:1"
+        const val hiltCompose = "androidx.hilt:hilt-navigation-compose:${Version.hiltCompose}"
+    }
 
-object Test {
-    const val JUNIT = "junit:junit:4.+"
-    const val ANDROID_JUNIT_RUNNER = "AndroidJUnitRunner"
-}
+    object Network {
+        const val retrofit = "com.squareup.retrofit2:retrofit:${Version.retrofit}"
+        const val gsonConverter = "com.squareup.retrofit2:converter-gson:${Version.retrofit}"
+        const val okhttp = "com.squareup.okhttp3:okhttp:${Version.okhttp}"
+        const val loggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Version.okhttp}"
+    }
 
-object AndroidTest {
-    const val EXT_JUNIT = "androidx.test.ext:junit:1.1.3"
-    const val TEST_RUNNER = "androidx.test:runner:1.4.0"
-    const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.4.0"
-}
+    object LocalStorage {
+        const val room = "androidx.room:room-ktx:${Version.room}"
+        const val roomCompiler = "androidx.room:room-compiler:${Version.room}"
+        const val sharedPreference =
+            "androidx.preference:preference-ktx:${Version.sharedPreference}"
+    }
 
-object DaggerHilt {
-    const val DAGGER_HILT = "com.google.dagger:hilt-android:2.38.1"
-    const val DAGGER_HILT_COMPILER = "com.google.dagger:hilt-android-compiler:2.38.1"
-    const val DAGGER_HILT_VIEW_MODEL = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03"
-    const val DAGGER_HILT_ANDROIDX_COMPILER = "androidx.hilt:hilt-compiler:1.0.0"
-}
+    object Lifecycle {
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Version.lifecycle}"
+        const val liveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Version.lifecycle}"
+        const val runTime = "androidx.lifecycle:lifecycle-runtime-ktx:${Version.lifecycle}"
+    }
 
-object Retrofit {
-    const val RETROFIT = "com.squareup.retrofit2:retrofit:2.9.0"
-    const val CONVERTER_GSON = "com.squareup.retrofit2:converter-gson:2.9.0"
-}
+    object GooglePlayService {
+        const val fitness = "com.google.android.gms:play-services-fitness:${Version.googleFit}"
+        const val auth = "com.google.android.gms:play-services-auth:${Version.googleAuth}"
+    }
 
-object OkHttp {
-    const val OKHTTP = "com.squareup.okhttp3:okhttp:4.9.1"
-    const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.9.1"
-}
+    object ThreeTenAndroidBackport {
+        const val threeTenAbp = "com.jakewharton.threetenabp:threetenabp:${Version.threeTenAbp}"
+    }
 
-object Coroutines {
-    const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
-}
+    object Moshi {
+        const val moshi = "com.squareup.moshi:moshi:${Version.moshi}"
+        const val moshiCompiler = "com.squareup.moshi:moshi-kotlin-codegen:${Version.moshi}"
+        const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Version.moshiKotlin}"
+    }
 
-object NavComponent {
-    const val NAVIGATION_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:$NAV_VERSION"
-    const val NAVIGATION_UI = "androidx.navigation:navigation-ui-ktx:$NAV_VERSION"
-    const val NAVIGATION_DYNAMIC_FEATURES_FRAGMENT = "androidx.navigation:navigation-dynamic-features-fragment:$NAV_VERSION"
-    const val NAVIGATION_TESTING = "androidx.navigation:navigation-testing:$NAV_VERSION"
-    const val NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:2.4.0-alpha10"
+    object Navigation {
+        const val navigationFragment =
+            "androidx.navigation:navigation-fragment-ktx:${Version.navigation}"
+        const val navigationUi = "androidx.navigation:navigation-ui-ktx:${Version.navigation}"
+    }
+
+    object WorkManager {
+        const val ktx = "androidx.work:work-runtime-ktx:${Version.workManager}"
+        const val hiltExtension = "androidx.hilt:hilt-work:${Version.workManagerHiltExtension}"
+    }
+    
+    object FireBase {
+        const val fcm = "com.google.firebase:firebase-analytics-ktx:${Version.fcm}"
+        const val message = "com.google.firebase:firebase-messaging:${Version.message}"
+    }
+
+    object Permission {
+        const val tedPermission =
+            "io.github.ParkSangGwon:tedpermission-normal:${Version.tedPermission}"
+    }
+
+    object CircleImageView {
+        const val circleImage = "de.hdodenhof:circleimageview:${Version.circleImage}"
+    }
+
+    object Glide {
+        const val glideCore = "com.github.bumptech.glide:glide:${Version.glide}"
+        const val glideCompiler = "com.github.bumptech.glide:compiler:${Version.glide}"
+    }
+
+    object Socket {
+        const val socketIo = "io.socket:socket.io-client:${Version.socket}"
+    }
 }

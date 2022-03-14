@@ -4,21 +4,21 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_nav_home"
-        android:title="home" />
+        android:title="Home" />
 
     <item
         android:id="@+id/navigation_friends"
         android:icon="@drawable/ic_nav_friends"
-        android:title="friends" />
+        android:title="Friends" />
 
     <item
         android:id="@+id/navigation_start"
         android:icon="@drawable/ic_nav_star"
-        android:title="star" />
+        android:title="Star" />
 
     <item
         android:id="@+id/navigation_setting"
         android:icon="@drawable/ic_nav_setting"
-        android:title="setting" />
+        android:title="Setting" />
 
 </menu>

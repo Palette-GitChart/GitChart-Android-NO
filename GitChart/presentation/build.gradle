@@ -1,90 +1,117 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'dagger.hilt.android.plugin'
+    id("com.android.application")
+    id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
+    kotlin("android")
+    kotlin("kapt")
 }
 
 android {
-    compileSdk 31
+    compileSdk = Project.compileSdk
 
     defaultConfig {
-        applicationId "com.pss.clean_architecture_sample"
-        minSdk 21
-        targetSdk 31
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        applicationId = "com.semicolon.walkhub"
+        minSdk = Project.minSdk
+        targetSdk = Project.targetSdk
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility = Project.javaVersion
+        targetCompatibility = Project.javaVersion
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = Version.jetpackCompose
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "1.8"
     }
     buildFeatures {
-        dataBinding true
+        dataBinding = true
+        compose = true
     }
 }
 
 dependencies {
-    implementation project(":data")
-    implementation project(':domain')
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
-    implementation (KTX.CORE)
-    implementation (AndroidX.APP_COMPAT)
-    implementation (Google.MATERIAL)
-    implementation (AndroidX.CONSTRAINT_LAYOUT)
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation(Dependency.Moshi.moshi)
+    kapt(Dependency.Moshi.moshiCompiler)
+    implementation (Dependency.Moshi.moshiKotlin)
 
-    // dagger hilt
-    implementation (DaggerHilt.DAGGER_HILT)
-    kapt (DaggerHilt.DAGGER_HILT_COMPILER)
-    implementation (DaggerHilt.DAGGER_HILT_VIEW_MODEL)
-    kapt (DaggerHilt.DAGGER_HILT_ANDROIDX_COMPILER)
+    implementation(Dependency.coreKtx)
+    implementation(Dependency.appcompat)
+    implementation(Dependency.androidKtx)
+    implementation(Dependency.fragmentKtx)
 
-    // ViewModel
-    implementation (AndroidX.LIFECYCLE_VIEW_MODEL)
+    implementation(Dependency.UI.material)
+    implementation(Dependency.UI.constraintLayout)
+    implementation(Dependency.UI.compose)
+    implementation(Dependency.UI.composeTooling)
+    implementation(Dependency.UI.composePreview)
+    implementation(Dependency.UI.composeMaterial)
+    implementation(Dependency.UI.composeCompiler)
+    implementation(Dependency.UI.activityCompose)
+    implementation(Dependency.UI.coilCompose)
+    implementation(Dependency.UI.pinEntryEditText)
 
-    // LiveData
-    implementation (AndroidX.LIFECYCLE_LIVEDATA)
+    testImplementation(Dependency.Test.junit)
+    testImplementation(Dependency.Test.mockito)
+    androidTestImplementation(Dependency.Test.androidJunit)
+    androidTestImplementation(Dependency.Test.espresso)
 
-    // Retrofit
-    implementation (Retrofit.RETROFIT)
-    implementation (Retrofit.CONVERTER_GSON)
+    implementation(Dependency.DI.hiltAndroid)
+    implementation(Dependency.DI.hiltCompose)
+    kapt(Dependency.DI.hiltCompiler)
 
-    //okHttp
-    implementation (OkHttp.OKHTTP)
-    implementation (OkHttp.LOGGING_INTERCEPTOR)
+    implementation(Dependency.Network.retrofit)
+    implementation(Dependency.Network.gsonConverter)
+    implementation(Dependency.Network.okhttp)
+    implementation(Dependency.Network.loggingInterceptor)
 
-    //coroutines
-    implementation (Coroutines.COROUTINES)
+    implementation(Dependency.LocalStorage.room)
+    kapt(Dependency.LocalStorage.roomCompiler)
 
-    //by viewModel
-    implementation (AndroidX.ACTIVITY)
-    implementation (AndroidX.FRAGMENT)
+    implementation(Dependency.Coroutine.core)
+    implementation(Dependency.Coroutine.android)
 
-    //nav component
-    implementation (NavComponent.NAVIGATION_FRAGMENT)
-    implementation (NavComponent.NAVIGATION_UI)
-    implementation (NavComponent.NAVIGATION_DYNAMIC_FEATURES_FRAGMENT)
-    androidTestImplementation (NavComponent.NAVIGATION_TESTING)
-    implementation (NavComponent.NAVIGATION_COMPOSE)
+    implementation(Dependency.Lifecycle.viewModel)
+    implementation(Dependency.Lifecycle.liveData)
+    implementation(Dependency.Lifecycle.runTime)
 
-    //datastore
-    implementation (AndroidX.DATASTORE)
+    implementation (Dependency.Navigation.navigationFragment)
+    implementation (Dependency.Navigation.navigationUi)
+
+    implementation(Dependency.WorkManager.ktx)
+    implementation(Dependency.WorkManager.hiltExtension)
+
+    implementation(Dependency.FireBase.fcm)
+    implementation(Dependency.FireBase.message)
+
+    implementation(Dependency.GooglePlayService.fitness)
+    implementation(Dependency.GooglePlayService.auth)
+
+    implementation(Dependency.Permission.tedPermission)
+
+    implementation(Dependency.ThreeTenAndroidBackport.threeTenAbp)
+
+    implementation(Dependency.CircleImageView.circleImage)
+
+    implementation(Dependency.Glide.glideCore)
+    annotationProcessor(Dependency.Glide.glideCompiler)
+
+    implementation(Dependency.Socket.socketIo){
+        exclude (group = "org.json", module = "json")
+    }
 }

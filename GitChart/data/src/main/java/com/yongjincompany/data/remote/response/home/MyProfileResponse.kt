@@ -1,11 +1,11 @@
 package com.yongjincompany.data.remote.response.home
 
+import com.google.gson.annotations.SerializedName
+
 data class MyProfileResponse(
-    val avatar_url: String,
-    val followers: Int,
-    val following: Int,
-    val id: Int,
-    val login: String,
-    val name: String,
-    val node_id: String
+    @SerializedName("avatar_url") val avatarUrl: String,
+    @SerializedName("followers") val followers: Int,
+    @SerializedName("following") val following: Int,
+    @SerializedName("login") val id: String,
+    @SerializedName("name") val name: String
 )
