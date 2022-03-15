@@ -6,6 +6,5 @@ data class MyProfileResponse(
     @SerializedName("avatar_url") val avatarUrl: String,
     @SerializedName("followers") val followers: Int,
     @SerializedName("following") val following: Int,
-    @SerializedName("login") val id: String,
-    @SerializedName("name") val name: String
+    @SerializedName("login") val id: String
 )
