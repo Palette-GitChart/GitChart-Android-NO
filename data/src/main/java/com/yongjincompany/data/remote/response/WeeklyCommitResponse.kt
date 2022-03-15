@@ -1,3 +1,7 @@
 package com.yongjincompany.data.remote.response
 
-data class WeeklyCommitResponse()
+import com.google.gson.annotations.SerializedName
+
+data class WeeklyCommitResponse(
+    @SerializedName("week_commit") val weekCommit: Int
+)
