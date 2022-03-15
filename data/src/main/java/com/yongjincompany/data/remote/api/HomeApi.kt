@@ -3,6 +3,7 @@ package com.yongjincompany.data.remote.api
 import com.yongjincompany.data.remote.response.MyProfileResponse
 import com.yongjincompany.data.remote.response.TodayCommitResponse
 import com.yongjincompany.data.remote.response.WeeklyCommitResponse
+import com.yongjincompany.data.remote.response.YearCommitResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -21,4 +22,9 @@ interface HomeApi {
     suspend fun fetchWeekCommit(
         @Path("userName") userName: String
     ) : WeeklyCommitResponse
+
+    @GET("{userName}/yearcount")
+    suspend fun fetchYearCommit(
+        @Path("userName") userName: String
+    ) : YearCommitResponse
 }
