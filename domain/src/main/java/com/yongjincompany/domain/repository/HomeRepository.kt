@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 
 
 interface HomeRepository {
-    suspend fun fetchMyProfile(userId: String): Flow<MyProfileEntity>
+    suspend fun fetchMyProfile(id: String): Flow<MyProfileEntity>
 
     suspend fun fetchDayCommit(userName: String): Flow<TodayCommitEntity>
 
