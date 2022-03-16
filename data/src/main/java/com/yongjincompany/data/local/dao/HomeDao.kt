@@ -12,25 +12,25 @@ import com.yongjincompany.data.local.entity.YearCommitRoomEntity
 @Dao
 interface HomeDao {
     @Query("SELECT * FROM myProfile")
-    suspend fun fetchGithubProfile(): MyProfileRoomEntity
+    suspend fun fetchMyProfile(userId: String): MyProfileRoomEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMyProfile(myProfileRoomEntity: MyProfileRoomEntity)
 
     @Query("SELECT * FROM todayCommit")
-    suspend fun fetchDayCommit(): TodayCommitRoomEntity
+    suspend fun fetchDayCommit(userName: String): TodayCommitRoomEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDayCommit(todayCommitRoomEntity: TodayCommitRoomEntity)
 
     @Query("SELECT * FROM weekCommit")
-    suspend fun fetchWeekCommit(): WeeklyCommitRoomEntity
+    suspend fun fetchWeekCommit(userName: String): WeeklyCommitRoomEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeekCommit(weeklyCommitRoomEntity: WeeklyCommitRoomEntity)
 
     @Query("SELECT * FROM yearCommit")
-    suspend fun fetchYearCommit(): YearCommitRoomEntity
+    suspend fun fetchYearCommit(userName: String): YearCommitRoomEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertYearCommit(yearCommitRoomEntity: YearCommitRoomEntity)
