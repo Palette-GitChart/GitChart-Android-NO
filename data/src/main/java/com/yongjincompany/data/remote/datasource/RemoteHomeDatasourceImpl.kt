@@ -11,9 +11,9 @@ import javax.inject.Inject
 class RemoteHomeDatasourceImpl @Inject constructor(
     private val homeApi: HomeApi
 ) : RemoteHomeDataSource {
-    override suspend fun fetchMyProfile(userId: String): MyProfileResponse =
+    override suspend fun fetchMyProfile(id: String): MyProfileResponse =
         HttpHandler<MyProfileResponse>()
-            .httpRequest { homeApi.fetchMyProfile(userId) }
+            .httpRequest { homeApi.fetchMyProfile(id) }
             .sendRequest()
 
     override suspend fun fetchDayCommit(userName: String): TodayCommitResponse =
