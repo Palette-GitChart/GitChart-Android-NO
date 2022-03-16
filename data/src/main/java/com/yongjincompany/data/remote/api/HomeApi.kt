@@ -16,15 +16,16 @@ interface HomeApi {
     @GET("{userName}/daycount")
     suspend fun fetchDayCommit(
         @Path("userName") userName: String
-    ) : TodayCommitResponse
+    ): TodayCommitResponse
 
     @GET("{userName}/weekcount")
     suspend fun fetchWeekCommit(
         @Path("userName") userName: String
-    ) : WeeklyCommitResponse
+    ): WeeklyCommitResponse
+
 
     @GET("{userName}/yearcount")
     suspend fun fetchYearCommit(
         @Path("userName") userName: String
-    ) : YearCommitResponse
+    ): YearCommitResponse
 }
