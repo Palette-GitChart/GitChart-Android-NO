@@ -6,7 +6,7 @@ import com.yongjincompany.data.remote.response.WeeklyCommitResponse
 import com.yongjincompany.data.remote.response.YearCommitResponse
 
 interface RemoteHomeDataSource {
-    suspend fun fetchMyProfile(userId: String): MyProfileResponse
+    suspend fun fetchMyProfile(id: String): MyProfileResponse
 
     suspend fun fetchDayCommit(userName: String): TodayCommitResponse
 
