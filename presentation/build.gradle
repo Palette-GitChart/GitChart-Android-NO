@@ -7,7 +7,7 @@ plugins {
 
 android {
     compileSdk 31
-
+    configurations { implementation.exclude group: 'org.jetbrains', module: 'annotations' }
     defaultConfig {
         applicationId "com.yongjincompany.gogit"
         minSdk 21
@@ -60,6 +60,6 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.1'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.1'
 
-    implementation project(":data")
-    implementation project(":domain")
+    implementation (project(":data"))
+    implementation (project(":domain"))
 }
