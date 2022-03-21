@@ -8,7 +8,7 @@ import com.yongjincompany.data.remote.response.YearCommitResponse
 import com.yongjincompany.data.util.HttpHandler
 import javax.inject.Inject
 
-class RemoteHomeDatasourceImpl @Inject constructor(
+class RemoteHomeDataSourceImpl @Inject constructor(
     private val homeApi: HomeApi
 ) : RemoteHomeDataSource {
     override suspend fun fetchMyProfile(id: String): MyProfileResponse =
